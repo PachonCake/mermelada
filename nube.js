@@ -64,4 +64,11 @@ function animar() {
 }
 
 animar();
+    function cargarPagina(pagina){
+        fetch("./diccionario/" + pagina + ".html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("contenido").innerHTML = data;
+            });
+    }
 })
