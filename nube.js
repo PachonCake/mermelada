@@ -64,7 +64,8 @@ function animar() {
 }
 
 animar();
-    /// Diccionario enfermería ///
+})
+/// Diccionario enfermería ///
     function cargar(pagina){
         fetch("./diccionario/" + pagina + ".html")
             .then(res => res.text())
@@ -72,4 +73,3 @@ animar();
                 document.getElementById("contenido").innerHTML = data;
             });
     }
-})
