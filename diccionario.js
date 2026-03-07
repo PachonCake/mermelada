@@ -2,7 +2,8 @@ const diccionarioMedico = {
   celula: "Unidad básica estructural y funcional de los seres vivos.",
   homeostasis: "Capacidad del organismo para mantener condiciones internas estables.",
   taquicardia: "Frecuencia cardíaca mayor a 100 latidos por minuto.",
-  arteria: "Vaso sanguíneo que transporta sangre desde el corazón."
+  arteria: "Vaso sanguíneo que transporta sangre desde el corazón.",
+  mermelada: "Oyeme! ¿Es enserió? Ponte a trabajar y deja de distraerte"
 };
 function buscarTermino(){
   let palabra = document.getElementById("busqueda").value.toLowerCase();
