@@ -64,7 +64,8 @@ function animar() {
 }
 
 animar();
-    function cargarPagina(pagina){
+    /// Diccionario enfermería ///
+    function cargar(pagina){
         fetch("./diccionario/" + pagina + ".html")
             .then(res => res.text())
             .then(data => {
