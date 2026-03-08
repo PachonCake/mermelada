@@ -104,6 +104,26 @@ body {
 #sugerencias div:hover{
     background: #eee;
 }
+.busqueda-box{
+position: relative;
+width: 300px;
+}
+
+#ghost{
+position:absolute;
+left:0;
+top:0;
+width:100%;
+border:1px solid transparent;
+color:#aaa;
+pointer-events:none;
+}
+
+#busqueda{
+position:relative;
+background:transparent;
+width:100%;
+}
 .title-bar {
     display: flex;
     justify-content: space-between;
