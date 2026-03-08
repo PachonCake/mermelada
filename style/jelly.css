@@ -30,7 +30,7 @@ body {
 .window {
     position: fixed;
     border: solid #157e74 3px;
-    border-radius: 0;
+    border-radius: 10px;
     overflow: hidden;
     background: transparent;
     box-shadow: 5px 5px 12px rgba(0, 210, 180, 0.4);
