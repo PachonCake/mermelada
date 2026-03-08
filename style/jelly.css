@@ -30,7 +30,7 @@ body {
 .window {
     position: fixed;
     border: solid #402d38 3px;
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     background: transparent;
     box-shadow: 5px 5px 12px rgba(127, 0, 88, 0.4);
@@ -114,7 +114,7 @@ body {
     padding: 0px;
     padding-left: 3px;
     font-size: 16px;
-    border-bottom: #157e74 solid 2px;
+    border-bottom: #402d38 solid 2px;
     z-index: 7;
     user-select: none;
 }
@@ -147,7 +147,7 @@ body {
     background: #222;
     flex-wrap: wrap;
     z-index: 7;
-    border-top: solid #157e74 3px;
+    border-top: solid #402d38 3px;
 }
 .footer .menu label{
     display: inline;
