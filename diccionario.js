@@ -3,7 +3,8 @@ const diccionarioMedico = {
   homeostasis: "Capacidad del organismo para mantener condiciones internas estables.",
   taquicardia: "Frecuencia cardíaca mayor a 100 latidos por minuto.",
   arteria: "Vaso sanguíneo que transporta sangre desde el corazón.",
-  mermelada: "Oyeme! ¿Es enserió? Ponte a trabajar y deja de distraerte"
+  mermelada: "Oyeme! ¿Es enserió? Ponte a trabajar y deja de distraerte",
+  vena: "Vaso sanguíneo que lleva sangre al corazón."
 };
 function buscarTermino(){
   let palabra = document.getElementById("busqueda").value.toLowerCase();
