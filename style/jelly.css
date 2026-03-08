@@ -117,14 +117,15 @@ left:0;
 top:0;
 width:80%;
 border:1px solid transparent;
-color:#888;
+color:#ccc;
 pointer-events:none;
 }
 
 #busqueda{
-position:relative;
-background:transparent;
-width:80%;
+    position:relative;
+    background:transparent;
+    width:80%;
+    color: #ece6da;
 }
 .title-bar {
     display: flex;
