@@ -52,7 +52,7 @@ function animar() {
   for (let i = 0; i < nieve.length; i++) {
     ctx.beginPath();
     ctx.arc(nieve[i].x, nieve[i].y, nieve[i].tamaño, 0, 2 * Math.PI);
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+    ctx.fillStyle = 'rgba(000, 255, 255, 0.3)';
     ctx.fill();
     nieve[i].y += nieve[i].velocidad;
     if (nieve[i].y > canvas.height) {
