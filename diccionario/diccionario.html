@@ -1,6 +1,7 @@
 <h2>Diccionario</h2>
-
-<input type="text" id="busqueda" placeholder="Buscar ¿medusas?..." oninput="buscarTermino()" autocomplete="off">
+<div class="busqueda box">
+<input type="text" id="busqueda" placeholder="Buscar ¿medusas?..." oninput="buscarTermino()" onkeydown="teclaEnter(event)" autocomplete="off">
+</div>
 <div id="sugerencias"></div>
 <div id="resultado">
   <p>Escribe un término médico para ver su definición.</p>
