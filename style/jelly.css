@@ -94,8 +94,8 @@ body {
 }
 #sugerencias{
     background: white;
-    border: 1px solid #ccc;
-    max-width: 300px;
+    /* border: 1px solid #ccc; */
+    /* max-width: 300px; */
 }
 #sugerencias div{
     padding: 5px;
