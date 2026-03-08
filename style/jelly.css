@@ -93,16 +93,17 @@ body {
     text-align: right;
 }
 #sugerencias{
-    background: white;
-    /* border: 1px solid #ccc; */
-    /* max-width: 300px; */
+    background: #222;
+    border: 1px solid #402d38;
+    color: #ece6da;
+    /* max-width: 300px;*/
 }
 #sugerencias div{
     padding: 5px;
     cursor: pointer;
 }
 #sugerencias div:hover{
-    background: #eee;
+    background: #440404;
 }
 .busqueda-box{
 position: relative;
