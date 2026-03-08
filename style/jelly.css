@@ -106,8 +106,9 @@ body {
     background: #440404;
 }
 .busqueda-box{
-position: relative;
-width: 300px;
+    position: relative;
+    width: 150px;
+    align: center;
 }
 
 #ghost{
