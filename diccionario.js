@@ -27,6 +27,9 @@ function buscarTermino(){
       sugerencias.appendChild(item);
     }
   }
+  if(diccionarioMedico[palabra]){
+    mostrarDefinicion(palabra);
+  }
 }
 function mostrarDefinicion(termino){
   let resultado = document.getElementById("resultado");
