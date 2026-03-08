@@ -29,11 +29,11 @@ body {
 }
 .window {
     position: fixed;
-    border: solid #157e74 3px;
+    border: solid #402d38 3px;
     border-radius: 10px;
     overflow: hidden;
     background: transparent;
-    box-shadow: 5px 5px 12px rgba(0, 210, 180, 0.4);
+    box-shadow: 5px 5px 12px rgba(127, 0, 88, 0.4);
     top: 20px;
     bottom: 20px;
     right: 10px;
