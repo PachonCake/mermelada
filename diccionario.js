@@ -7,13 +7,30 @@ const diccionarioMedico = {
 };
 function buscarTermino(){
   let palabra = document.getElementById("busqueda").value.toLowerCase();
+  let sugerencias = document.getElementById("sugerencias");
   let resultado = document.getElementById("resultado");
-  if(diccionarioMedico[palabra]){
-    resultado.innerHTML = `
-    <h3>${palabra}</h3>
-    <p>${diccionarioMedico[palabra]}</p>
-    `;
-  }else{
-    resultado.innerHTML = "<p>Término no encontrado.</p>";
+  sugerencias.innerHTML = "";
+  if(palabra.length === 0){
+    resultado.innerHTML = "<p>Busca un término médico.</p>";
+    return;
   }
+  for(let termino in diccionarioMedico){
+    if(termino.startsWith(palabra)){
+      let item = document.createElement("div");
+      item.textContent = termino;
+      item.onclick = function(){
+        document.getElementById("busqueda").value = termino;
+        mostrarDefinicion(termino);
+        sugerencias.innerHTML = "";
+      };
+      sugerencias.appendChild(item);
+    }
+  }
+}
+function mostrarDefinicion(termino){
+  let resultado = document.getElementById("resultado");
+  resultado.innerHTML = `
+  <h3>${termino}</h3>
+  <p>${diccionarioMedico[termino]}</p>
+  `;
 }
