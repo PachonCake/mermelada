@@ -30,6 +30,14 @@ function buscarTermino(){
   if(diccionarioMedico[palabra]){
     mostrarDefinicion(palabra);
   }
+  let ghost = document.getElementById("ghost");
+  ghost.value = "";
+  for(let termino in diccionarioMedico){
+    if(termino.startsWith(palabra)){
+      ghost.value = termino;
+      break;
+    }
+  }
 }
 function mostrarDefinicion(termino){
   let resultado = document.getElementById("resultado");
@@ -37,4 +45,13 @@ function mostrarDefinicion(termino){
   <h3>${termino}</h3>
   <p>${diccionarioMedico[termino]}</p>
   `;
+}
+function teclaEnter(event){
+  if(event.key === "Enter"){
+    let ghost = document.getElementById("ghost").value;
+    if(ghost){
+      document.getElementById("busqueda").value = ghost;
+      mostrarDefinicion(ghost);
+    }
+  }
 }
