@@ -19,7 +19,7 @@ const diccionarioMedico = {
   },
   mermelada: {
     titulo: "mermelada",
-    definicion: "Frecuencia cardíaca mayor a 100 latidos por minuto.",
+    definicion: "Oyeme! ¿Es enserió? Ponte a trabajar y deja de distraerte.",
     ejemplo: "Tu buscando esta palabra.",
     relacionadas: ["procrastinacion", "flojera", "ADHD"]
   },
