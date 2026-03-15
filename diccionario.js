@@ -38,6 +38,7 @@ function mostrarDefinicion(termino){
   if(data.relacionadas){
     relacionadasHTML = data.relacionadas
       .map(p => `<span class="relacionada">${p}</span>`)
+      .map(p => `<span class="relacionada" onclick="mostrarDefinicion('${p}')">${p}</span>`)
       .join(", ");
   }
 
