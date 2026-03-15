@@ -93,7 +93,7 @@ body {
     text-align: right;
 }
 #sugerencias {
-    background: #ccc;
+    background: #222;
     border: 1px solid #402d38;
     color: #ece6da;
     max-width: 80px;
@@ -116,7 +116,7 @@ body {
     top:0;
     width:80%;
     border:1px solid transparent;
-    color:#888;
+    color:#ccc;
     pointer-events:none;
 }
 #busqueda {
