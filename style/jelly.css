@@ -92,47 +92,45 @@ body {
     padding-right: 12px;
     text-align: right;
 }
-#sugerencias{
-    background: #222;
+#sugerencias {
+    background: #ccc;
     border: 1px solid #402d38;
     color: #ece6da;
     max-width: 80px;
 }
-#sugerencias div{
+#sugerencias div {
     padding: 5px;
     cursor: pointer;
 }
-#sugerencias div:hover{
+#sugerencias div:hover {
     background: #440404;
 }
-.busqueda-box{
+.busqueda-box {
     position: fixed;
     width: 80px;
     align: center;
 }
-
-#ghost{
+#ghost {
     position:absolute;
     left:0;
     top:0;
     width:80%;
     border:1px solid transparent;
-    color:#ccc;
+    color:#888;
     pointer-events:none;
 }
-
-#busqueda{
+#busqueda {
     position:relative;
     background:transparent;
     width:80%;
     color: #ece6da;
 }
-.relacionada{
+.relacionada {
     color:#4aa3ff;
     cursor:pointer;
 }
 
-.relacionada:hover{
+.relacionada:hover {
     text-decoration:underline;
 }
 .title-bar {
