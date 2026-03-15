@@ -40,11 +40,25 @@ function buscarTermino(){
   }
 }
 function mostrarDefinicion(termino){
+  let data = diccionarioMedico[termino];
   let resultado = document.getElementById("resultado");
-  resultado.innerHTML = `
-  <h3>${termino}</h3>
-  <p>${diccionarioMedico[termino]}</p>
-  `;
+  let relacionadasHTML = "";
+  if(data.relacionadas){
+    relacionadasHTML = data.relacionadas
+      .map(p => `<span class="relacionada">${p}</span>`)
+      .join(", ");
+  }
+
+resultado.innerHTML = `
+<h3>${data.titulo}</h3>
+
+<p><b>Definición:</b> ${data.definicion}</p>
+
+<p><b>Ejemplo:</b> ${data.ejemplo}</p>
+
+<p><b>Relacionadas:</b> ${relacionadasHTML}</p>
+`;
+
 }
 function teclaEnter(event){
   if(event.key === "Enter"){
