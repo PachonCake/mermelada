@@ -34,5 +34,11 @@ const diccionarioMedico = {
     definicion: "Vaso sanguíneo que transporta sangre al corazón.",
     ejemplo: "m",
     relacionadas: ["arritmia", "corazón"]
+  },
+  medusas: {
+    titulo: "Medusas",
+    definicion: "Animal marino invertebrado, transparente y gelatinoso, que, en una fase de su vida, tiene forma de campana o de sombrilla provista de tentáculos.",
+    ejemplo: "Si, definitivamenteesto está aquí, es un easter egg.",
+    relacionadas: ["camarón"]
   }
 };
