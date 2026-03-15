@@ -127,6 +127,14 @@ body {
     width:80%;
     color: #ece6da;
 }
+.relacionada{
+    color:#4aa3ff;
+    cursor:pointer;
+}
+
+.relacionada:hover{
+    text-decoration:underline;
+}
 .title-bar {
     display: flex;
     justify-content: space-between;
