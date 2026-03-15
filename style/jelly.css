@@ -96,7 +96,7 @@ body {
     background: #222;
     border: 1px solid #402d38;
     color: #ece6da;
-    max-width: 80%;
+    max-width: 90%;
 }
 #sugerencias div {
     padding: 5px;
@@ -108,7 +108,6 @@ body {
 .busqueda-box {
     position: fixed;
     width: 80px;
-    align: center;
 }
 #ghost {
     position:absolute;
@@ -122,8 +121,9 @@ body {
 #busqueda {
     position:relative;
     background:transparent;
-    width:80%;
+    width:90%;
     color: #ece6da;
+    align: center;
 }
 .relacionada {
     color:#4aa3ff;
