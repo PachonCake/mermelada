@@ -4,7 +4,7 @@ function buscarTermino(){
   let resultado = document.getElementById("resultado");
   sugerencias.innerHTML = "";
   if(palabra.length === 0){
-    resultado.innerHTML = "<p>Busca un término médico.</p>";
+    resultado.innerHTML = "<p>Busca una definición o término médico.</p>";
     return;
   }
   for(let termino in diccionarioMedico){
