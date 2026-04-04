@@ -17,12 +17,6 @@ const diccionarioMedico = {
     ejemplo: "El paciente presentó taquicardia tras el ejercicio intenso.",
     relacionadas: ["arritmia", "corazón"]
   },
-  mermelada: {
-    titulo: "mermelada",
-    definicion: "Oyeme! ¿Es enserió? Ponte a trabajar y deja de distraerte.",
-    ejemplo: "Tu buscando esta palabra.",
-    relacionadas: ["procrastinacion", "flojera", "ADHD"]
-  },
   arteria: {
     titulo: "Arteria",
     definicion: "Vaso sanguíneo que transporta sangre desde el corazón.",
@@ -35,10 +29,17 @@ const diccionarioMedico = {
     ejemplo: "m",
     relacionadas: ["arritmia", "corazón"]
   },
+  // easter eggs//
   medusas: {
     titulo: "Medusas",
     definicion: "Animal marino invertebrado, transparente y gelatinoso, que, en una fase de su vida, tiene forma de campana o de sombrilla provista de tentáculos.",
     ejemplo: "Si, definitivamenteesto está aquí, es un easter egg.",
     relacionadas: ["camarón"]
+  },
+  mermelada: {
+    titulo: "mermelada",
+    definicion: "Oyeme! ¿Es enserió? Ponte a trabajar y deja de distraerte.",
+    ejemplo: "Tu buscando esta palabra.",
+    relacionadas: ["procrastinacion", "flojera", "ADHD"]
   }
 };
