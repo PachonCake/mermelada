@@ -19,6 +19,7 @@ const diccionarioMedico = {
   },
   arteria: {
     titulo: "Arteria",
+    categoría: "Sistema cardiovascular",
     definicion: "Vaso sanguíneo que transporta sangre desde el corazón.",
     ejemplo: "M",
     relacionadas: ["vena", "corazón"]
