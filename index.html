@@ -1,64 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ponjoso</title>
-    <link rel="stylesheet" href="./style/jelly.css">
-    <meta http-equiv="refresh" content="60">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mermelada — Enfermería</title>
+  <link rel="stylesheet" href="./style/jelly.css">
 </head>
 <body>
-    <!-- Gir wallpaper -->
-    <div class="gir"></div>
-    <canvas id="nieve"></canvas>
-    <div class="app-container">
-        <div class="window">
-            <div class="title-bar">
-                <span class="title">bash: tech-nurse &lt;&sol;&gt;</span>
-                <div class="mimaclo">
-                    <button class="minimize">-</button>
-                    <button class="maximize">&#x25a1;</button>
-                    <button class="close">&#x00d7;</button>
-                </div>
-            </div>
-            <input type="checkbox" id="checkbar">            
-            <div class="shadowbar" id="shadowbar">
-                <div class="sidebar">
-                    <nav>
-                        <h3>Mermelada Proyect</h3>
-                        <ul class="navlink">
-                            <li><a href="#" onclick="cargar('inicio')">Inicio</a></li>
-                            <li><a href="#" onclick="cargar('diccionario')">Diccionario</a></li>
-                        </ul>
-                        <h4>Медузы</h4>
-                    </nav>
-                </div>
-            </div>
-            <div class="prince">
-                <div class="page-content" id="contenido">
-                    <h2>Mermelada &lt;&sol;&gt;</h2>
-                    <h4>Amm...</h4>
-                    <h5>Acaso...</h5> 
-                    <h5>¿Estas buscando una receta para hacer una Mermelada?</h5>
-                    <p>Pues mira, esto es un proyecto de enfermería, únicamente con el propósito de apoyar mis estudios, y ¿porque no? hacerlo público y ayudar a otros</p>
-                                    </div>
-            </div>
-            <div class="footer">
-                <div class="menu">
-                    <label for="checkbar">-&#x2302;-</label>
-                </div>
-                <div class="clock"></div>
-                <div class="oops">|</div>
-                <div class="progress-bar">˚꒰ა ☆ ໒꒱˚</div>
-                <div class="oops">|</div>
-                <div class="rights">&copy; Ponjoso</div>
-                <div class="girspace">&#x00d7;&#x00d7</div>
-            </div>
-     </div>
-    </div>
-    <!--- Script --->
-    <script src="./nube.js"></script>
-    <script src="./diccionario-data.js"></script>
-    <script src="./diccionario.js"></script>
+
+  <!-- Fondo: GIR y nieve (z-index bajo, detrás de .window) -->
+  <div class="gir" aria-hidden="true"></div>
+  <canvas id="nieve" aria-hidden="true"></canvas>
+
+  <div class="app-container">
+    <div class="window" id="ventana">
+
+      <!-- Barra de título -->
+      <div class="title-bar">
+        <span class="title">bash: tech-nurse &lt;&#47;&gt;</span>
+        <div class="mimaclo">
+          <button class="minimize" title="Minimizar">-</button>
+          <button class="maximize" title="Maximizar">&#x25a1;</button>
+          <button class="close"    title="Cerrar">&#x00d7;</button>
+        </div>
+      </div>
+
+      <!-- Checkbox hack para sidebar (sin JS extra) -->
+      <input type="checkbox" id="checkbar">
+
+      <!-- Overlay + sidebar -->
+      <div class="shadowbar" id="shadowbar">
+        <div class="sidebar">
+          <nav aria-label="Navegación principal">
+            <h3>Mermelada Proyect</h3>
+            <ul class="navlink">
+              <li><a href="#" onclick="cargar('inicio')">Inicio</a></li>
+              <li><a href="#" onclick="cargar('diccionario')">Diccionario</a></li>
+            </ul>
+            <h4>Медузы</h4>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Contenido principal -->
+      <main class="prince">
+        <div class="page-content" id="contenido">
+          <!-- Cargado por ui.js → cargar('inicio') -->
+        </div>
+      </main>
+
+      <!-- Footer / barra de estado -->
+      <footer class="footer">
+        <div class="menu">
+          <label for="checkbar" title="Abrir menú">-&#x2302;-</label>
+        </div>
+        <div class="clock" aria-live="off"></div>
+        <div class="oops" aria-hidden="true">|</div>
+        <div class="jelly-bar" aria-hidden="true">˚꒰ა ☆ ໒꒱˚</div>
+        <div class="oops" aria-hidden="true">|</div>
+        <div class="rights" aria-hidden="true">&copy; Ponjoso</div>
+        <div class="girspace" aria-hidden="true">&#x00d7;&#x00d7;</div>
+      </footer>
+
+    </div><!-- /.window -->
+  </div><!-- /.app-container -->
+
+  <script src="./js/data.js"></script>
+  <script src="./js/diccionario.js"></script>
+  <script src="./js/ui.js"></script>
 </body>
 </html>
