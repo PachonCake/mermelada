@@ -8,14 +8,12 @@
 </head>
 <body>
 
-  <!-- Fondo: GIR y nieve (z-index bajo, detrás de .window) -->
   <div class="gir" aria-hidden="true"></div>
   <canvas id="nieve" aria-hidden="true"></canvas>
 
   <div class="app-container">
     <div class="window" id="ventana">
 
-      <!-- Barra de título -->
       <div class="title-bar">
         <span class="title">bash: tech-nurse &lt;&#47;&gt;</span>
         <div class="mimaclo">
@@ -25,31 +23,26 @@
         </div>
       </div>
 
-      <!-- Checkbox hack para sidebar (sin JS extra) -->
       <input type="checkbox" id="checkbar">
 
-      <!-- Overlay + sidebar -->
       <div class="shadowbar" id="shadowbar">
         <div class="sidebar">
           <nav aria-label="Navegación principal">
             <h3>Mermelada Proyect</h3>
             <ul class="navlink">
               <li><a href="#" onclick="cargar('inicio')">Inicio</a></li>
-              <li><a href="#" onclick="cargar('diccionario')">Diccionario</a></li>
+              <li><a href="#" onclick="cargar('glosario')">Glosario</a></li>
+              <li><a href="#" onclick="cargar('historia')">Historia</a></li>
             </ul>
             <h4>Медузы</h4>
           </nav>
         </div>
       </div>
 
-      <!-- Contenido principal -->
       <main class="prince">
-        <div class="page-content" id="contenido">
-          <!-- Cargado por ui.js → cargar('inicio') -->
-        </div>
+        <div class="page-content" id="contenido"></div>
       </main>
 
-      <!-- Footer / barra de estado -->
       <footer class="footer">
         <div class="menu">
           <label for="checkbar" title="Abrir menú">-&#x2302;-</label>
@@ -62,11 +55,12 @@
         <div class="girspace" aria-hidden="true">&#x00d7;&#x00d7;</div>
       </footer>
 
-    </div><!-- /.window -->
-  </div><!-- /.app-container -->
+    </div>
+  </div>
 
   <script src="./js/data.js"></script>
-  <script src="./js/diccionario.js"></script>
+  <script src="./js/glosario.js"></script>
+  <script src="./js/historia.js"></script>
   <script src="./js/ui.js"></script>
 </body>
 </html>
