@@ -1,11 +1,11 @@
 // ============================================================
-//  Mermelada Project — diccionario.js
-//  Lógica de búsqueda, filtro y renderizado del diccionario.
+//  Mermelada Project — glosario.js
+//  Lógica de búsqueda, filtro y renderizado del glosario.
 //  Depende de: data.js (diccionarioMedico, CATEGORIAS)
 // ============================================================
 
 // ── Índice de búsqueda ──────────────────────────────────────
-// Se construye una vez al cargar, para no iterar el objeto
+// Se construye una vez al cargar para no iterar el objeto
 // completo en cada pulsación de tecla.
 let _indice = null;
 
@@ -15,19 +15,18 @@ function obtenerIndice() {
   return _indice;
 }
 
-// ── Renderizado principal del diccionario ───────────────────
-function renderizarDiccionario() {
+// ── Renderizado principal del glosario ─────────────────────
+function renderizarGlosario() {
   const contenido = document.getElementById("contenido");
   if (!contenido) return;
 
-  // Construir opciones del filtro de categoría
   const opcionesCategoria = Object.entries(CATEGORIAS)
     .map(([key, label]) =>
       `<option value="${key}">${label}</option>`
     ).join("");
 
   contenido.innerHTML = `
-    <h2>Diccionario <span style="font-size:0.6em;color:#888">&lt;&#47;&gt;</span></h2>
+    <h2>Glosario <span style="font-size:0.6em;color:#888">&lt;&#47;&gt;</span></h2>
 
     <div class="busqueda-box">
       <label for="busqueda" class="sr-only">Buscar término médico</label>
@@ -68,9 +67,9 @@ function renderizarDiccionario() {
 
 // ── Búsqueda con autocompletado ─────────────────────────────
 function buscarTermino() {
-  const input    = document.getElementById("busqueda");
-  const ghost    = document.getElementById("ghost");
-  const sug      = document.getElementById("sugerencias");
+  const input     = document.getElementById("busqueda");
+  const ghost     = document.getElementById("ghost");
+  const sug       = document.getElementById("sugerencias");
   const resultado = document.getElementById("resultado");
 
   if (!input || !sug) return;
@@ -110,7 +109,6 @@ function buscarTermino() {
 
   ghost.value = primero || "";
 
-  // Mostrar definición exacta si existe
   if (diccionarioMedico[palabra]) {
     mostrarDefinicion(palabra);
   }
@@ -118,7 +116,7 @@ function buscarTermino() {
 
 // ── Filtro por categoría ────────────────────────────────────
 function filtrarCategoria() {
-  const categoria = document.getElementById("filtroCategoria")?.value;
+  const categoria  = document.getElementById("filtroCategoria")?.value;
   const resultado  = document.getElementById("resultado");
   const sug        = document.getElementById("sugerencias");
   const input      = document.getElementById("busqueda");
@@ -163,21 +161,16 @@ function mostrarDefinicion(termino) {
   const resultado = document.getElementById("resultado");
   if (!resultado) return;
 
-  // Categoría badge
   const catLabel = data.categoria && CATEGORIAS[data.categoria]
     ? `<span class="cat-badge">${CATEGORIAS[data.categoria]}</span>`
     : "";
 
-  // Palabras relacionadas — navegables
   const relacionadasHTML = data.relacionadas
     ? data.relacionadas
-        .map(p => {
-          if (diccionarioMedico[p]) {
-            return `<span class="relacionada" onclick="irA('${p}')">${p}</span>`;
-          }
-          return `<span class="relacionada inactiva">${p}</span>`;
-        })
-        .join(", ")
+        .map(p => diccionarioMedico[p]
+          ? `<span class="relacionada" onclick="irA('${p}')">${p}</span>`
+          : `<span class="relacionada inactiva">${p}</span>`
+        ).join(", ")
     : "—";
 
   resultado.innerHTML = `
@@ -195,11 +188,10 @@ function irA(termino) {
   if (input) input.value = termino;
   if (sug)   sug.innerHTML = "";
   mostrarDefinicion(termino);
-  // Scroll suave al resultado
   document.getElementById("resultado")?.scrollIntoView({ behavior: "smooth" });
 }
 
-// ── Autocompletar con Tab/Enter ─────────────────────────────
+// ── Autocompletar con Tab / Enter ───────────────────────────
 function teclaEnter(event) {
   if (event.key === "Enter" || event.key === "Tab") {
     event.preventDefault();
@@ -215,9 +207,9 @@ function teclaEnter(event) {
   }
 }
 
-// ── Cerrar sugerencias al hacer click fuera ─────────────────
+// ── Cerrar sugerencias al click fuera ──────────────────────
 document.addEventListener("click", (e) => {
-  const sug = document.getElementById("sugerencias");
+  const sug   = document.getElementById("sugerencias");
   const input = document.getElementById("busqueda");
   if (sug && !sug.contains(e.target) && e.target !== input) {
     sug.innerHTML = "";
