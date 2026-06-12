@@ -7,13 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ── RELOJ ─────────────────────────────────────────────────
   function updateClock() {
-    const now     = new Date();
-    const h       = now.getHours();
-    const m       = String(now.getMinutes()).padStart(2, "0");
-    const s       = String(now.getSeconds()).padStart(2, "0");
-    const secHtml = `<span class="seconds">${s}</span>`;
+    const now   = new Date();
+    const h     = now.getHours();
+    const m     = String(now.getMinutes()).padStart(2, "0");
+    const s     = String(now.getSeconds()).padStart(2, "0");
     document.querySelectorAll(".clock").forEach(el => {
-      el.innerHTML = `${h}:${m}${secHtml}`;
+      el.innerHTML = `${h}:${m}<span class="seconds">${s}</span>`;
     });
     setTimeout(updateClock, 1000);
   }
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ── NIEVE (canvas) ────────────────────────────────────────
-  // El canvas vive en el body, detrás de .window (z-index < 1)
   const canvas = document.getElementById("nieve");
   if (canvas) {
     const ctx = canvas.getContext("2d");
@@ -63,13 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.fill();
         c.y += c.velocidad;
         c.x += c.deriva;
-        if (c.y > canvas.height) {
-          c.y = 0;
-          c.x = Math.random() * canvas.width;
-        }
-        if (c.x < 0 || c.x > canvas.width) {
-          c.x = Math.random() * canvas.width;
-        }
+        if (c.y > canvas.height) { c.y = 0; c.x = Math.random() * canvas.width; }
+        if (c.x < 0 || c.x > canvas.width) { c.x = Math.random() * canvas.width; }
       });
       requestAnimationFrame(animar);
     }
@@ -81,78 +74,118 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnMin   = document.querySelector(".minimize");
   const btnMax   = document.querySelector(".maximize");
   const btnClose = document.querySelector(".close");
-
   let minimizado = false;
-  let alturaOriginal = null;
 
-  // Restaurar/Minimizar — colapsa a solo la barra de título
   if (btnMin && ventana) {
     btnMin.addEventListener("click", () => {
-      if (!minimizado) {
-        alturaOriginal = ventana.style.bottom || "";
-        ventana.classList.add("minimizado");
-        btnMin.title = "Restaurar";
-        minimizado = true;
-      } else {
-        ventana.classList.remove("minimizado");
-        btnMin.title = "Minimizar";
-        minimizado = false;
-      }
+      minimizado = !minimizado;
+      ventana.classList.toggle("minimizado", minimizado);
+      btnMin.title = minimizado ? "Restaurar" : "Minimizar";
     });
   }
 
-  // Maximizar — restaura si estaba minimizado, sin efecto extra
   if (btnMax && ventana) {
     btnMax.addEventListener("click", () => {
       if (minimizado) {
+        minimizado = false;
         ventana.classList.remove("minimizado");
         btnMin.title = "Minimizar";
-        minimizado = false;
       }
-      // Efecto visual breve de "rebote"
       ventana.classList.add("maximizando");
       setTimeout(() => ventana.classList.remove("maximizando"), 300);
     });
   }
 
-  // Cerrar — pide confirmación antes de cerrar la pestaña
   if (btnClose) {
     btnClose.addEventListener("click", () => {
-      const confirmar = confirm("¿Cerrar Mermelada? 👾\n(Se cerrará esta pestaña)");
-      if (confirmar) window.close();
+      const ok = confirm("¿Cerrar Mermelada? 👾\n(Se cerrará esta pestaña)");
+      if (ok) window.close();
     });
   }
 
-  // ── NAVEGACIÓN INTERNA ────────────────────────────────────
-  // Carga la página de inicio por defecto
+  // ── NAVEGACIÓN ────────────────────────────────────────────
   cargar("inicio");
 });
 
 // ── Renderizador de páginas ───────────────────────────────────
-// Sin fetch. Todo se renderiza desde aquí.
 function cargar(pagina) {
   const contenido = document.getElementById("contenido");
   if (!contenido) return;
 
-  // Cerrar sidebar al navegar
   const checkbox = document.getElementById("checkbar");
   if (checkbox) checkbox.checked = false;
 
   switch (pagina) {
+
     case "inicio":
       contenido.innerHTML = `
         <h2>Mermelada <span style="font-size:0.6em;color:#888">&lt;&#47;&gt;</span></h2>
-        <h4 style="color:#666;text-align:right">Amm...</h4>
-        <h5 style="color:#555;text-align:right">Acaso...</h5>
-        <h5 style="color:#555;text-align:right">¿Estás buscando una receta para hacer una Mermelada?</h5>
-        <p>Pues mira, esto es un proyecto de enfermería, únicamente con el propósito de apoyar mis estudios
-        y, ¿por qué no?, hacerlo público y ayudar a otros.</p>
-        <p>Usa el menú lateral para navegar al <b>Diccionario</b> médico.</p>
+        </br>
+        <h5>
+          ¿Estás buscando una receta para hacer mermelada?<span
+            class="punto-enlace"
+            onclick="cargar('receta')"
+            title="..."
+          >.</span>
+        </h5>
+
+        <p>
+          Este es mi proyecto de estudio para enfermería. Nació como una
+          herramienta personal y creció hasta convertirse en algo que vale
+          la pena compartir.
+        </p>
+
+        <p>
+          Aquí encontrarás un <b>Glosario</b> de terminología médica
+          y una <b>Historia de la Enfermería</b> organizada como línea
+          del tiempo, desde el Antiguo Egipto hasta la práctica
+          contemporánea.
+        </p>
+
+        <p>
+          El proyecto sigue en construcción. Como la ciencia misma:
+          nunca del todo terminado, siempre abierto a corrección.
+        </p>
+
+        <p class="firma">— Ponjoso</p>
       `;
       break;
 
-    case "diccionario":
-      renderizarDiccionario();
+    case "receta":
+      contenido.innerHTML = `
+        <div class="receta-secret">
+          <h2>🍓 Receta de Mermelada de Fresa</h2>
+          <p class="receta-aviso">Página secreta. No se la digas a nadie.</p>
+
+          <h4>Ingredientes</h4>
+          <ul class="receta-lista">
+            <li>500 g de fresas frescas</li>
+            <li>300 g de azúcar</li>
+            <li>Jugo de ½ limón</li>
+          </ul>
+
+          <h4>Preparación</h4>
+          <ol class="receta-lista">
+            <li>Lava y desinfecta las fresas. Retira el tallo y córtalas en cuartos.</li>
+            <li>Mezcla las fresas con el azúcar en una olla. Deja reposar 30 minutos hasta que suelten su jugo.</li>
+            <li>Agrega el jugo de limón. Lleva a fuego medio, removiendo constantemente.</li>
+            <li>Cuando empiece a hervir, baja el fuego y cocina ~25 minutos hasta que espese. Prueba poniendo una gota en un plato frío: si no corre, está lista.</li>
+            <li>Vierte en frascos esterilizados, cierra y deja enfriar invertidos.</li>
+          </ol>
+
+          <p style="margin-top:16px">
+            <span class="relacionada" onclick="cargar('inicio')">← Volver al inicio</span>
+          </p>
+        </div>
+      `;
+      break;
+
+    case "glosario":
+      renderizarGlosario();
+      break;
+
+    case "historia":
+      renderizarHistoria();
       break;
 
     default:
