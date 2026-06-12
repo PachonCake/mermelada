@@ -1,6 +1,6 @@
 // ============================================================
 //  Mermelada Project — data.js
-//  Diccionario médico de enfermería
+//  Glosario médico de enfermería
 //  Fuente de verdad. Para agregar términos en producción,
 //  usa el panel admin (guarda en localStorage) y luego
 //  exporta aquí cuando estés listo para hacer commit.
@@ -619,6 +619,65 @@ const diccionarioMedico = {
     definicion: "Infección bacteriana del tracto urinario (uretra, vejiga, uréteres o riñones). Es más frecuente en mujeres. Se manifiesta con disuria, polaquiuria y urgencia miccional.",
     ejemplo: "La E. coli es la bacteria responsable de más del 80% de las infecciones urinarias no complicadas.",
     relacionadas: ["infeccion", "bacteria", "sondaje"],
+  },
+
+
+  // ── TÉRMINOS ADICIONALES ──────────────────────────────────
+  salud: {
+    titulo: "Salud",
+    categoria: "anatomia",
+    definicion: "Estado de completo bienestar físico, mental y social, y no meramente la ausencia de enfermedad o dolencia. Definición de la Organización Mundial de la Salud (OMS, 1948).",
+    ejemplo: "La promoción de la salud busca que las personas adopten estilos de vida saludables, no solo tratar enfermedades.",
+    relacionadas: ["bienestar", "homeostasis", "enfermeria"],
+  },
+  enfermeria: {
+    titulo: "Enfermería",
+    categoria: "procedimientos",
+    definicion: "Disciplina científica y humanística que se ocupa del cuidado integral de la salud de las personas, familias y comunidades, promoviendo el bienestar, previniendo la enfermedad y acompañando el proceso de recuperación.",
+    ejemplo: "La enfermería moderna combina conocimiento clínico, pensamiento crítico y competencia humana en cada intervención.",
+    relacionadas: ["salud", "bienestar", "signos-vitales"],
+  },
+  pulmones: {
+    titulo: "Pulmones",
+    categoria: "respiratorio",
+    definicion: "Órganos pares del sistema respiratorio encargados del intercambio gaseoso entre el aire y la sangre. El pulmón derecho tiene tres lóbulos y el izquierdo dos, siendo este último ligeramente más pequeño para alojar al corazón.",
+    ejemplo: "Una radiografía de tórax permite evaluar el tamaño, forma y densidad de los pulmones.",
+    relacionadas: ["alveolo", "bronquio", "saturacion", "disnea"],
+  },
+  ojos: {
+    titulo: "Ojos",
+    categoria: "anatomia",
+    definicion: "Órganos sensoriales de la visión. Convierten la luz en señales nerviosas que el cerebro interpreta como imágenes. Están protegidos por los párpados, las pestañas y el líquido lagrimal.",
+    ejemplo: "La exploración de los ojos incluye evaluar agudeza visual, reflejos pupilares y fondo de ojo.",
+    relacionadas: ["cerebro", "neurona"],
+  },
+  bienestar: {
+    titulo: "Bienestar",
+    categoria: "anatomia",
+    definicion: "Estado dinámico en el que el individuo experimenta satisfacción física, emocional y social. Componente esencial del concepto de salud según la OMS.",
+    ejemplo: "El bienestar del paciente incluye no solo su estado clínico, sino también su comodidad y estado emocional.",
+    relacionadas: ["salud", "homeostasis"],
+  },
+  cefalea: {
+    titulo: "Cefalea",
+    categoria: "patologia",
+    definicion: "Término médico para el dolor de cabeza. Puede ser primaria (migraña, cefalea tensional) cuando el dolor es la enfermedad en sí, o secundaria cuando es síntoma de otra patología.",
+    ejemplo: "Una cefalea súbita de gran intensidad descrita como 'la peor de mi vida' puede indicar hemorragia subaracnoidea.",
+    relacionadas: ["dolor", "neurona", "cerebro", "escala-dolor"],
+  },
+  caudal: {
+    titulo: "Caudal",
+    categoria: "procedimientos",
+    definicion: "En contexto clínico, se refiere al volumen de fluido que pasa por una vía o conducto por unidad de tiempo. En venoclisis, el caudal (gotas por minuto o mL/hora) determina la velocidad de infusión.",
+    ejemplo: "Se ajustó el caudal de la venoclisis a 40 gotas por minuto para administrar el litro de solución en 6 horas.",
+    relacionadas: ["via-venosa", "balance-hidrico", "diuresis"],
+  },
+  pirexia: {
+    titulo: "Pirexia",
+    categoria: "signos",
+    definicion: "Sinónimo médico de fiebre. Elevación de la temperatura corporal por encima de 38 °C como respuesta del organismo. El término proviene del griego 'pyr' (fuego).",
+    ejemplo: "El médico registró 'pirexia de 38.8 °C' en la nota clínica, indicando la necesidad de antipirético.",
+    relacionadas: ["fiebre", "temperatura", "antipiretico", "infeccion"],
   },
 
   // ── EASTER EGGS ───────────────────────────────────────────
