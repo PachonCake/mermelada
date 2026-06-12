@@ -495,6 +495,168 @@ body {
   line-height: 2;
 }
 
+/* ── PÁGINA DE INICIO ─────────────────────────────────────── */
+.inicio-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  min-height: 280px;
+}
+
+.inicio-texto {
+  flex: 1;
+  min-width: 0;
+}
+
+.inicio-texto .firma {
+  color: #555;
+  text-align: right;
+  font-style: italic;
+  margin-top: 18px;
+}
+
+.punto-enlace {
+  color: #ffb6df;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: text-shadow 200ms;
+}
+.punto-enlace:hover {
+  text-shadow: 0 0 6px #ffb6df;
+}
+
+
+/* ── LÍNEA DEL TIEMPO ─────────────────────────────────────── */
+.carril-eras {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 6px 2px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #402d38 transparent;
+}
+
+.era-chip {
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid #402d38;
+  border-radius: 20px;
+  color: #888;
+  font-size: 16px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: border-color 200ms, color 200ms, box-shadow 200ms;
+}
+
+.era-chip:hover   { border-color: #c070a8; color: #fff; }
+.era-chip.activo  { border-color: #ffb6df; color: #ffb6df; box-shadow: 0 0 8px #ffb6df55; }
+
+.timeline-nav {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.tl-arrow {
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid #402d38;
+  border-radius: 4px;
+  color: #c070a8;
+  font-size: 18px;
+  padding: 6px 10px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: border-color 200ms, color 200ms;
+}
+
+.tl-arrow:hover:not(:disabled) { border-color: #ffb6df; color: #ffb6df; }
+.tl-arrow:disabled              { color: #333; border-color: #222; cursor: default; }
+
+.era-card     { flex: 1; min-width: 0; }
+
+.era-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.era-icono  { font-size: 26px; line-height: 1; }
+
+.era-titulo {
+  color: #ece6da;
+  margin: 0 0 2px;
+  font-size: 16px;
+}
+
+.era-periodo { color: #666; font-size: 11px; }
+
+.era-resumen {
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0 0 12px;
+  text-align: justify;
+}
+
+.figuras-label {
+  color: #555;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+.figura-card {
+  border-left: 3px solid #402d38;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  background: #0d0d0d;
+  border-radius: 0 4px 4px 0;
+}
+
+.figura-nombre { color: #d0b8c8; font-size: 14px; font-weight: bold; }
+.figura-rol    { color: #666;    font-size: 11px;  margin-bottom: 4px; }
+
+.figura-aporte {
+  color: #999;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+  text-align: justify;
+}
+
+/* ── PÁGINA SECRETA: RECETA ──────────────────────────────── */
+.receta-secret h2 {
+  color: #ece6da;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.receta-aviso {
+  color: #555;
+  font-size: 11px;
+  text-align: center;
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+.receta-lista {
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.8;
+  padding-left: 18px;
+  margin: 6px 0 14px;
+}
+
+.receta-secret h4 {
+  color: #d0b8c8;
+  margin: 10px 0 4px;
+}
+
+
 /* ── RESPONSIVE — Mobile ──────────────────────────────────── */
 @media (max-width: 600px) {
   .app-container {
@@ -552,5 +714,19 @@ body {
 
   .window.minimizado {
     width: calc(100% - 16px);
+  }
+}
+
+  .timeline-nav {
+    gap: 4px;
+  }
+
+  .tl-arrow {
+    padding: 5px 7px;
+    font-size: 16px;
+  }
+
+  .era-icono {
+    font-size: 20px;
   }
 }
