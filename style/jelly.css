@@ -188,8 +188,12 @@ body {
   margin: 12px 0 4px;
 }
 
+.prince .page-content h5 {
+  color: #888;
+  text-align: right;
+  margin: 5px 0;
+}
 .prince .page-content h4,
-.prince .page-content h5,
 .prince .page-content h6 {
   color: #666;
   text-align: right;
