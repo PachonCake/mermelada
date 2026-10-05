@@ -1,9 +1,23 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#060011">
   <title>Mermelada — Enfermería</title>
+
+  <!-- Aplica el tema guardado ANTES de pintar (evita el parpadeo oscuro→claro) -->
+  <script>
+    (function () {
+      var t = "dark";
+      try {
+        var s = localStorage.getItem("mermelada-tema");
+        if (s === "light" || s === "dark") t = s;
+      } catch (e) { /* localStorage bloqueado: se queda el tema oscuro */ }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
   <link rel="stylesheet" href="./style/jelly.css">
 </head>
 <body>
@@ -17,9 +31,11 @@
       <div class="title-bar">
         <span class="title">bash: tech-nurse &lt;&#47;&gt;</span>
         <div class="mimaclo">
-          <button class="minimize" title="Minimizar">-</button>
-          <button class="maximize" title="Maximizar">&#x25a1;</button>
-          <button class="close"    title="Cerrar">&#x00d7;</button>
+          <button class="theme-toggle" id="themeBtn" type="button"
+                  title="Cambiar tema" aria-label="Cambiar tema claro/oscuro">&#9728;</button>
+          <button class="minimize" type="button" title="Minimizar">-</button>
+          <button class="maximize" type="button" title="Maximizar">&#x25a1;</button>
+          <button class="close"    type="button" title="Cerrar">&#x00d7;</button>
         </div>
       </div>
 
@@ -30,9 +46,12 @@
           <nav aria-label="Navegación principal">
             <h3>Mermelada Proyect</h3>
             <ul class="navlink">
-              <li><a href="#" onclick="cargar('inicio')">Inicio</a></li>
-              <li><a href="#" onclick="cargar('glosario')">Glosario</a></li>
-              <li><a href="#" onclick="cargar('historia')">Historia</a></li>
+              <li><a href="#" onclick="cargar('inicio'); return false;">Inicio</a></li>
+              <li><a href="#" onclick="cargar('glosario'); return false;">Glosario</a></li>
+              <li><a href="#" onclick="cargar('historia'); return false;">Historia</a></li>
+              <li><a href="#" onclick="cargar('farmacologia'); return false;">Calculadora</a></li>
+              <li><a href="#" onclick="cargar('nom'); return false;">NOM-045 / IAAS</a></li>
+              <li><a href="#" onclick="cargar('salud-mental'); return false;">Salud Mental</a></li>
             </ul>
             <h4>Медузы</h4>
           </nav>
@@ -49,7 +68,7 @@
         </div>
         <div class="clock" aria-live="off"></div>
         <div class="oops" aria-hidden="true">|</div>
-        <div class="jelly-bar" aria-hidden="true">˚꒰ა ☆ ໒꒱˚</div>
+        <div class="bar" aria-hidden="true">˚꒰ა ☆ ໒꒱˚</div>
         <div class="oops" aria-hidden="true">|</div>
         <div class="rights" aria-hidden="true">&copy; Ponjoso</div>
         <div class="girspace" aria-hidden="true">&#x00d7;&#x00d7;</div>
@@ -61,6 +80,9 @@
   <script src="./js/data.js"></script>
   <script src="./js/glosario.js"></script>
   <script src="./js/historia.js"></script>
+  <script src="./js/farmacologia.js"></script>
+  <script src="./js/nom.js"></script>
+  <script src="./js/salud-mental.js"></script>
   <script src="./js/ui.js"></script>
 </body>
 </html>
