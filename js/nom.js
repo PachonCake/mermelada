@@ -23,7 +23,7 @@ const NOM_SECCIONES = [
         <p class="figura-aporte">
           «Para la vigilancia epidemiológica, prevención y control de las infecciones
           asociadas a la atención de la salud». (Ojo con el orden del nombre:
-          es <b>NOM-045-SSA-2026</b>, no «SSA-045».)
+          es <b>NOM-045-SSA-2026</b>)
         </p>
       </div>
 
