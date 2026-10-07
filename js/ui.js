@@ -175,7 +175,7 @@ function cargar(pagina) {
     case "inicio":
       contenido.innerHTML = `
         <h2>Mermelada <span style="font-size:0.6em;color:var(--text-dim)">&lt;&#47;&gt;</span></h2>
-        <p>¿Estás buscando una receta para hacer mermelada<span
+        <p>¿Estás buscando una receta para hacer mermelada?<span
           class="punto-enlace" onclick="cargar('receta')" title="...">.</span>
         </p>
         <p>Este es mi proyecto de estudio para enfermería. Nació como una
